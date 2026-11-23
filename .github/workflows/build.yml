@@ -57,8 +57,14 @@ jobs:
             "platforms;android-35" \
             "build-tools;35.0.0"
 
-          echo "ANDROID_HOME=$ANDROID_HOME"
-          echo "ANDROID_SDK_ROOT=$ANDROID_HOME"
+          SDKMANAGER_PATH="$(command -v sdkmanager)"
+
+          if [ -z "$SDKMANAGER_PATH" ]; then
+            echo "ERROR: sdkmanager topilmadi"
+            exit 1
+          fi
+
+          echo "sdkmanager: $SDKMANAGER_PATH"
 
           echo "$ANDROID_HOME/build-tools/35.0.0" >> "$GITHUB_PATH"
           echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
@@ -76,15 +82,50 @@ jobs:
 
       - name: Prepare Buildozer SDK
         run: |
-          mkdir -p "$HOME/.buildozer/android/platform"
+          SDKMANAGER_PATH="$(command -v sdkmanager)"
 
-          rm -rf "$HOME/.buildozer/android/platform/android-sdk"
+          if [ -z "$SDKMANAGER_PATH" ]; then
+            echo "ERROR: sdkmanager topilmadi"
+            exit 1
+          fi
 
-          ln -s "$ANDROID_HOME" \
-            "$HOME/.buildozer/android/platform/android-sdk"
+          mkdir -p "$HOME/.buildozer/android/platform/android-sdk/tools/bin"
 
-          echo "Buildozer SDK:"
-          ls -la "$HOME/.buildozer/android/platform/android-sdk"
+          rm -f "$HOME/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager"
+          rm -f "$HOME/.buildozer/android/platform/android-sdk/tools/bin/avdmanager"
+
+          ln -s "$SDKMANAGER_PATH" \
+            "$HOME/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager"
+
+          AVDMANAGER_PATH="$(command -v avdmanager || true)"
+
+          if [ -n "$AVDMANAGER_PATH" ]; then
+            ln -s "$AVDMANAGER_PATH" \
+              "$HOME/.buildozer/android/platform/android-sdk/tools/bin/avdmanager"
+          fi
+
+          mkdir -p "$HOME/.buildozer/android/platform/android-sdk/build-tools"
+          mkdir -p "$HOME/.buildozer/android/platform/android-sdk/platform-tools"
+          mkdir -p "$HOME/.buildozer/android/platform/android-sdk/platforms"
+
+          rm -rf "$HOME/.buildozer/android/platform/android-sdk/build-tools/35.0.0"
+          rm -rf "$HOME/.buildozer/android/platform/android-sdk/platform-tools"
+          rm -rf "$HOME/.buildozer/android/platform/android-sdk/platforms/android-35"
+
+          ln -s "$ANDROID_HOME/build-tools/35.0.0" \
+            "$HOME/.buildozer/android/platform/android-sdk/build-tools/35.0.0"
+
+          ln -s "$ANDROID_HOME/platform-tools" \
+            "$HOME/.buildozer/android/platform/android-sdk/platform-tools"
+
+          ln -s "$ANDROID_HOME/platforms/android-35" \
+            "$HOME/.buildozer/android/platform/android-sdk/platforms/android-35"
+
+          echo "=== Buildozer SDK ==="
+          ls -la "$HOME/.buildozer/android/platform/android-sdk/tools/bin"
+
+          echo "=== sdkmanager test ==="
+          "$HOME/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager" --version
 
       - name: Build APK
         run: |
@@ -94,6 +135,7 @@ jobs:
 
           export ANDROIDSDK="$ANDROID_HOME"
           export ANDROID_SDK_ROOT="$ANDROID_HOME"
+
           export PATH="$ANDROID_HOME/build-tools/35.0.0:$ANDROID_HOME/platform-tools:$PATH"
 
           echo "================================"
@@ -102,6 +144,12 @@ jobs:
 
           which aidl
           aidl --version || true
+
+          echo "================================"
+          echo "SDKMANAGER CHECK"
+          echo "================================"
+
+          "$HOME/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager" --version
 
           echo "================================"
           echo "BUILDOZER CHECK"

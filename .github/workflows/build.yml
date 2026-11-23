@@ -36,10 +36,17 @@ jobs:
         with:
           packages: platform-tools
 
-      - name: Install Android Build Tools
+      - name: Install Android Build Tools and AIDL
         run: |
-          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
-          echo "$ANDROID_HOME/build-tools/35.0.0" >> "$GITHUB_PATH"
+          sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+          AIDL_PATH="$(find "$ANDROID_HOME" -type f -name aidl -perm -111 | head -n 1)"
+          if [ -z "$AIDL_PATH" ]; then
+            echo "AIDL topilmadi"
+            exit 1
+          fi
+          echo "$(dirname "$AIDL_PATH")" >> "$GITHUB_PATH"
+          echo "ANDROIDSDK=$ANDROID_HOME" >> "$GITHUB_ENV"
+          echo "AIDL topildi: $AIDL_PATH"
 
       - name: Install Buildozer
         run: |

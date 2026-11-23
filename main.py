@@ -1,0 +1,5 @@
+print("================================")
+print("        MATH AI 12.0")
+print("================================")
+print("Asosiy dastur ishga tushdi.")
+print("Keyingi bosqichda matematik modullar ulanadi.")

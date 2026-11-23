@@ -1,0 +1,141 @@
+[32mexo[0m/x11 4.21.0 aarch64
+  Application library for XFCE
+
+[32mlibxfce4ui[0m/x11 4.20.2-2 aarch64
+  Commonly used XFCE widgets among XFCE applications
+
+[32mlibxfce4util[0m/x11 4.20.1-1 aarch64
+  Basic utility non-GUI functions for XFCE
+
+[32mlibxfce4util-static[0m/x11 4.20.1-1 aarch64
+  Static libraries for libxfce4util
+
+[32mlibxfce4windowing[0m/x11 4.20.6 aarch64
+  Windowing concept abstraction library for X11 and Wayland
+
+[32mmousepad[0m/x11 0.7.0 aarch64
+  A simple text editor for the Xfce desktop environment
+
+[32mparole[0m/x11 4.20.0-1 aarch64
+  Parole is a media player for the Xfce desktop environment, written using the GStreamer framework.
+
+[32mthunar[0m/x11 4.20.8 aarch64
+  Modern file manager for XFCE environment
+
+[32mxfce4[0m/x11 4.20 all
+  A metapackage that installs all parts of the XFCE desktop environment
+
+[32mxfce4-appfinder[0m/x11 4.20.0-1 aarch64
+  Application launcher and finder
+
+[32mxfce4-appmenu-plugin[0m/x11 25.04-2 aarch64
+  Global Menu applet for use with xfce4-panel
+
+[32mxfce4-battery-plugin[0m/x11 1.2.0-1 aarch64
+  A battery monitor plugin for the Xfce panel
+
+[32mxfce4-calculator-plugin[0m/x11 0.8.0-1 aarch64
+  Simple command line based calculator for the Xfce panel
+
+[32mxfce4-clipman-plugin[0m/x11 1.7.0-1 aarch64
+  Clipman is a clipboard manager for Xfce
+
+[32mxfce4-cpugraph-plugin[0m/x11 1.3.0-1 aarch64
+  Graphical representation of the CPU load
+
+[32mxfce4-datetime-plugin[0m/x11 0.8.3-1 aarch64
+  xfce4-datetime-plugin shows the date and time in the panel; when left-clicked, a popup calendar appears.
+
+[32mxfce4-datetime-plugin-static[0m/x11 0.8.3-1 aarch64
+  Static libraries for xfce4-datetime-plugin
+
+[32mxfce4-dev-tools[0m/x11 4.20.0-1 aarch64
+  A collection of tools and macros for Xfce developers
+
+[32mxfce4-dict[0m/x11 0.8.9-1 aarch64
+  Dictionary for XFCE desktop
+
+[32mxfce4-docklike-plugin[0m/x11 0.5.1 aarch64
+  A modern, docklike, minimalist taskbar for XFCE
+
+[32mxfce4-eyes-plugin[0m/x11 4.7.0-1 aarch64
+  This plugin adds eyes to the Xfce panel which follow your cursor, similar to the xeyes program.
+
+[32mxfce4-genmon-plugin[0m/x11 4.3.0-1 aarch64
+  Display cyclically run script or program output onto the panel
+
+[32mxfce4-goodies[0m/x11 4.20.0 all
+  this meta-package will install various utilities and programs for the XFCE desktop environment (incomplete!)
+
+[32mxfce4-mailwatch-plugin[0m/x11 1.4.0-1 aarch64
+  Xfce4 Mailwatch Plugin is a multi-protocol, multi-mailbox mail watcher for the Xfce4 panel.
+
+[32mxfce4-netload-plugin[0m/x11 1.5.0-1 aarch64
+  network load monitor plugin for the Xfce4 panel
+
+[32mxfce4-notes-plugin[0m/x11 1.12.0 aarch64
+  Notes application for the Xfce4 desktop
+
+[32mxfce4-notifyd[0m/x11 0.9.7-1 aarch64
+  simple, visually-appealing notification daemon for Xfce
+
+[32mxfce4-notifyd-static[0m/x11 0.9.7-1 aarch64
+  Static libraries for xfce4-notifyd
+
+[32mxfce4-panel[0m/x11 4.20.7 aarch64
+  Panel for the XFCE environment
+
+[32mxfce4-panel-profiles[0m/x11 1.1.1-3 all
+  A simple application to manage Xfce panel layouts.
+
+[32mxfce4-places-plugin[0m/x11 1.9.0-1 aarch64
+  This plugin brings much of the functionality of GNOME Places menu to Xfce
+
+[32mxfce4-power-manager[0m/x11 4.20.0 aarch64
+  Power Manager for Xfce
+
+[32mxfce4-power-manager-static[0m/x11 4.20.0 aarch64
+  Static libraries for xfce4-power-manager
+
+[32mxfce4-pulseaudio-plugin[0m/x11 0.5.1-1 aarch64
+  Pulseaudio plugin for the Xfce4 panel
+
+[32mxfce4-screensaver[0m/x11 4.20.2 aarch64
+  Xfce Screensaver is a screen saver and locker that aims to have simple, sane, secure defaults and be well integrated with the desktop.
+
+[32mxfce4-screenshooter[0m/x11 1.11.3 aarch64
+  The Xfce4-screenshooter is an application that can be used to take snapshots of your desktop screen.
+
+[32mxfce4-session[0m/x11 4.20.4-1 aarch64
+  A session manager for XFCE environment
+
+[32mxfce4-settings[0m/x11 4.20.4 aarch64
+  Settings manager for XFCE environment
+
+[32mxfce4-settings-static[0m/x11 4.20.4 aarch64
+  Static libraries for xfce4-settings
+
+[32mxfce4-taskmanager[0m/x11 1.6.0-1 aarch64
+  Easy to use task manager
+
+[32mxfce4-terminal[0m/x11 1.2.0 aarch64
+  Terminal Emulator for the XFCE environment
+
+[32mxfce4-timer-plugin[0m/x11 1.8.0-1 aarch64
+  alarm and timer module for Xfce panel
+
+[32mxfce4-wavelan-plugin[0m/x11 0.7.0-1 aarch64
+  wavelan status plugin for the Xfce4 panel
+
+[32mxfce4-whiskermenu-plugin[0m/x11 2.10.1 aarch64
+  Alternate menu plugin for the Xfce desktop environment
+
+[32mxfdashboard[0m/tur-packages 1.0.0 aarch64
+  Maybe a Gnome shell like dashboard for Xfce
+
+[32mxfdesktop[0m/x11 4.20.2 aarch64
+  A desktop manager for XFCE environment
+
+[32mxfwm4[0m/x11 4.20.0-1 aarch64
+  Window manager for XFCE environment
+

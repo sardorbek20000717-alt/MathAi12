@@ -1,0 +1,70 @@
+import sympy as sp
+import pytesseract
+from PIL import Image
+from pathlib import Path
+import re
+
+x = sp.symbols("x")
+
+print("===== PHOTO MATH AI 2.0 =====")
+
+while True:
+    print("\n1. Misol yozish")
+    print("2. Rasmdan misol o'qish")
+    print("3. Chiqish")
+
+    tanlov = input("Tanlang: ")
+
+    try:
+        if tanlov == "1":
+            misol = input("Misol: ")
+
+        elif tanlov == "2":
+            rasm = input("Rasm manzili: ")
+            fayl = Path(rasm).expanduser()
+
+            if not fayl.exists():
+                print("Rasm topilmadi!")
+                continue
+
+            matn = pytesseract.image_to_string(
+                Image.open(fayl),
+                config="--psm 6"
+            )
+
+            print("OCR natijasi:", matn)
+
+            misollar = [
+                q.strip() for q in matn.splitlines()
+                if "=" in q
+            ]
+
+            if not misollar:
+                print("Tenglama topilmadi!")
+                continue
+
+            misol = misollar[0]
+            misol = misol.replace("Xx", "x")
+            misol = misol.replace("X", "x")
+            misol = misol.replace(" ", "")
+
+            print("Tuzatilgan misol:", misol)
+
+        elif tanlov == "3":
+            break
+
+        else:
+            print("Noto'g'ri tanlov!")
+            continue
+
+        chap, ong = misol.split("=", 1)
+
+        chap = sp.sympify(chap, locals={"x": x})
+        ong = sp.sympify(ong, locals={"x": x})
+
+        tenglama = sp.Eq(chap, ong)
+
+        print("Yechish:", sp.solve(tenglama, x))
+
+    except Exception as e:
+        print("Xatolik:", e)
